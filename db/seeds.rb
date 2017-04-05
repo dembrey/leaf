@@ -30,7 +30,7 @@ end
     location: Location.all.sample,
     username: Faker::Cat.unique.name
   )
-  user.skills << Skill.sample(3)
+  user.skills << Skill.all.sample(3)
 end
 
 5.times do
@@ -51,6 +51,6 @@ end
       location: Location.all.sample,
       employer: employer
     )
-    job.skills << Skill.sample(3)
+    job.skills << Skill.all.sample(3)
   end
 end
