@@ -28,7 +28,7 @@ end
     bio: Faker::StarWars.quote,
     password: "cupcakes",
     location: Location.all.sample,
-    username: Faker::Cat.unique.name,
+    username: Faker::Cat.unique.name
   )
 end
 
