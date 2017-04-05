@@ -2,6 +2,7 @@ class EmployersController < ApplicationController
 
   def create
     @employer = Employer.new(employer_params)
+    @employer.location = Location.find(params[:employer][:location][:id])
     if @employer.save!
       render json: @employer, serializer: EmployerSpecificSerializer
     else
