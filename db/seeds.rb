@@ -38,7 +38,8 @@ end
     contact_name: Faker::LordOfTheRings.character,
     contact_phone: Faker::PhoneNumber.phone_number,
     about: Faker::Company.catch_phrase,
-    password: "cupcakes"
+    password: "cupcakes",
+    location: Location.all.sample
   )
   3.times do
     Job.create!(
