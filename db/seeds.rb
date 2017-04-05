@@ -46,7 +46,7 @@ end
       description: Faker::Company.bs,
       transportation: false,
       active: true,
-      location: Location.all.sample,
+      location: Location.all.sample
     )
   end
 end
