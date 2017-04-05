@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       # client side validations is an option too!
       params[:user][:skills].each do |skill|
         skill = Skill.find_by(name: skill['name'])
-        Rails.logger.info skill.inspect
         @user.skills << skill
       end
       render json: @user, serializer: UserSpecificSerializer
