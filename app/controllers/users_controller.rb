@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         Rails.logger.info skill.inspect
         @user.skills << skill
       end
-      render json: @user
+      render json: @user, serializer: UserSpecificSerializer
     else
       render json: @user.errors.full_messages, status: 400
     end

@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
     if params[:username]
       @user = User.find_by(username: params[:username])&.authenticate(params[:password])
       if @user
-        render json: @user
+        render json: @user, serializer: UserSpecificSerializer
       else
         render json: ["Incorrect credentials"], status: 401
       end
     elsif params[:company_name]
       @employer = Employer.find_by(company_name: params[:company_name])&.authenticate(params[:password])
       if @employer
-        render json: @employer
+        render json: @employer, serializer: EmployerSpecificSerializer
       else
         render json: ["Incorrect credentials"], status: 401
       end

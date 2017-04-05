@@ -3,7 +3,7 @@ class EmployersController < ApplicationController
   def create
     @employer = Employer.new(employer_params)
     if @employer.save!
-      render json: @employer
+      render json: @employer, serializer: EmployerSpecificSerializer
     else
       render json: @employer.errors.full_messages, status: 400
     end
