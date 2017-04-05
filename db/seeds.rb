@@ -20,7 +20,7 @@ locations_array.each do |location|
 end
 
 5.times do
-  User.create!(
+  user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.safe_email,
@@ -29,7 +29,6 @@ end
     password: "cupcakes",
     location: Location.all.sample,
     username: Faker::Cat.unique.name,
-    skills: Skill.all.sample(3)
   )
 end
 
@@ -48,7 +47,6 @@ end
       transportation: false,
       active: true,
       location: Location.all.sample,
-      skills: Skill.all.sample(3)
     )
   end
 end
