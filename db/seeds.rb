@@ -30,10 +30,11 @@ end
     location: Location.all.sample,
     username: Faker::Cat.unique.name
   )
+  user.skills << Skill.sample(3)
 end
 
 5.times do
-  Employer.create!(
+  employer = Employer.create!(
     company_name: Faker::LordOfTheRings.location,
     contact_name: Faker::LordOfTheRings.character,
     contact_phone: Faker::PhoneNumber.phone_number,
@@ -42,12 +43,14 @@ end
     location: Location.all.sample
   )
   3.times do
-    Job.create!(
+    job = Job.create!(
       title: Faker::Company.profession,
       description: Faker::Company.bs,
       transportation: false,
       active: true,
-      location: Location.all.sample
+      location: Location.all.sample,
+      employer: employer
     )
+    job.skills << Skill.sample(3)
   end
 end
