@@ -5,5 +5,5 @@ class Job < ApplicationRecord
   has_many :skillings, as: :skillable
   has_many :skills, through: :skillings
 
-  validates :title, :description, :active, :skills, presence: true
+  validates :title, :description, :active, presence: true
 end
