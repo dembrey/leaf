@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GET REQUESTS
 
-Things you may want to cover:
+/api/employers/:id
+shows a single employer
+requires employer_id
+returns employer + jobs posted by that employer
 
-* Ruby version
+/api/users/:id
+shows a single user
+requires user_id
+returns user + skills of that user
 
-* System dependencies
+POST REQUESTS
 
-* Configuration
+/api/employers
+creates employer
+requires root key of 'employer' as in: { "employer": { "company_name": "asdfa" etc. etc.} }
+requires company_name, contact_name, contact_phone, about, password
+returns token
 
-* Database creation
+/api/users
+creates a user
+requires root key of 'user' as in: { "user": { "first_name": "asdfa" etc. etc.} }
+requires first_name, last_name, username, password
+returns token
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+/login
+logs in a user or an employer
+requires username and password if user
+requires company_name and password if employer
+returns either user or employer token and id
